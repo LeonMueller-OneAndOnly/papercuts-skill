@@ -9,20 +9,12 @@ metadata:
 
 # Papercuts
 
-Entries are written to `logs/papercuts.jsonl`.
-
-## When to use
-
 Use this skill after a real workflow issue: `dead-end-tool-call` (no useful
 progress), `broken-link` (missing or invalid reference), `shell-surprise`
 (unexpected command behavior), `friction` (repeatable annoyance), or `other`.
 
-## Record an entry
-
-From the repository root:
-
 ```bash
-npm run papercuts -- report \
+node <skill-directory>/scripts/papercuts -- report \
   --category dead-end-tool-call \
   --message "The API endpoint returned an empty response and provided no next step" \
   --tool web_extract \
@@ -34,3 +26,5 @@ npm run papercuts -- report \
 `--category` and `--message` are required. Use a concise description of what
 happened and, when useful, include `--tool`, `--url`, `--project`, `--session`,
 `--model`, and `--agent`. 
+
+Entries are written to `logs/papercuts.jsonl`.
