@@ -9,10 +9,7 @@ metadata:
 
 # Papercuts
 
-Record small, actionable workflow failures that would otherwise disappear from
-an agent run. This is deliberately lightweight: append one structured JSONL
-entry and continue the task. Do not invent a papercut; record only a problem
-that actually occurred.
+Entries are written to `logs/papercuts.jsonl`.
 
 ## When to use
 
@@ -36,23 +33,4 @@ npm run papercuts -- report \
 
 `--category` and `--message` are required. Use a concise description of what
 happened and, when useful, include `--tool`, `--url`, `--project`, `--session`,
-`--model`, and `--agent`. The CLI also reads `PAPERCUTS_PROJECT`,
-`PAPERCUTS_SESSION`, `PAPERCUTS_MODEL`, and `PAPERCUTS_AGENT` from the
-environment. If no message is supplied, a non-interactive stdin message is
-accepted.
-
-## Storage and privacy
-
-Entries are written to `logs/papercuts.jsonl`. That folder is ignored by
-`skills/agent-tools/papercuts/.gitignore`; never record secrets, tokens, or
-private user content. Logs are local telemetry, not an issue tracker.
-
-## Inspect local entries
-
-```bash
-npm run papercuts -- list
-npm run papercuts -- list --category broken-link --json
-```
-
-Turn recurring patterns into fixes, tests, or documentation. Logging alone
-should not stop the task unless the issue blocks progress.
+`--model`, and `--agent`. 
