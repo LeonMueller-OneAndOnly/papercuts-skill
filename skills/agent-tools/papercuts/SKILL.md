@@ -16,14 +16,9 @@ that actually occurred.
 
 ## When to use
 
-Use this skill immediately after encountering one of these:
-
-- `dead-end-tool-call`: a tool invocation cannot produce useful progress;
-- `broken-link`: a URL, documentation page, or reference is missing or invalid;
-- `shell-surprise`: quoting, globbing, cwd, or command behavior differs from
-  what was expected;
-- `friction`: another repeatable workflow annoyance;
-- `other`: a real issue that does not fit the categories above.
+Use this skill after a real workflow issue: `dead-end-tool-call` (no useful
+progress), `broken-link` (missing or invalid reference), `shell-surprise`
+(unexpected command behavior), `friction` (repeatable annoyance), or `other`.
 
 ## Record an entry
 
@@ -48,11 +43,9 @@ accepted.
 
 ## Storage and privacy
 
-Entries are written to `logs/papercuts.jsonl` beside this skill. The log
-folder is intentionally ignored by `skills/agent-tools/papercuts/.gitignore`.
-Do not put secrets, access tokens, or private user content in the message or
-context fields. The log is local operational telemetry, not a replacement for
-an issue tracker.
+Entries are written to `logs/papercuts.jsonl`. That folder is ignored by
+`skills/agent-tools/papercuts/.gitignore`; never record secrets, tokens, or
+private user content. Logs are local telemetry, not an issue tracker.
 
 ## Inspect local entries
 
@@ -61,6 +54,5 @@ npm run papercuts -- list
 npm run papercuts -- list --category broken-link --json
 ```
 
-Review recurring entries periodically and turn useful patterns into fixes,
-tests, or documentation. A papercut report is not itself a reason to stop the
-main task unless the issue blocks safe progress.
+Turn recurring patterns into fixes, tests, or documentation. Logging alone
+should not stop the task unless the issue blocks progress.
