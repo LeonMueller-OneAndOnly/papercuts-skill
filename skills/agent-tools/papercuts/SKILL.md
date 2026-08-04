@@ -14,7 +14,7 @@ progress), `broken-link` (missing or invalid reference), `shell-surprise`
 (unexpected command behavior), `friction` (repeatable annoyance), or `other`.
 
 ```bash
-node <skill-directory>/scripts/papercuts -- report \
+node <skill-directory>/scripts/papercuts.ts -- report \
   --category dead-end-tool-call \
   --message "The API endpoint returned an empty response and provided no next step" \
   --tool web_extract \
