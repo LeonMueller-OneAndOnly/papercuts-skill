@@ -1,0 +1,3 @@
+# Local papercut telemetry; keep the directory but never commit its contents.
+logs/*
+!logs/.gitkeep
